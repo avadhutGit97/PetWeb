@@ -1,0 +1,20 @@
+# Build artifacts
+**/bin/
+**/obj/
+
+# User-specific
+**/.vs/
+
+# EF Core local DB
+**/app.db
+
+# Local uploaded images
+**/wwwroot/pet-images/
+
+# Tools manifest artifacts
+**/.config/dotnet-tools.json
+**/.config/dotnet-tools.lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
