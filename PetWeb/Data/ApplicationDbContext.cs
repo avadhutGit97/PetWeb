@@ -10,5 +10,6 @@ namespace PetWeb.Data
         }
 
         public DbSet<Pet> Pets => Set<Pet>();
+        public DbSet<AdoptionRequest> AdoptionRequests => Set<AdoptionRequest>();
     }
 }

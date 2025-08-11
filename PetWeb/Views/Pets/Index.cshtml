@@ -10,9 +10,12 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Type</th>
             <th>Breed</th>
+            <th>Age</th>
             <th>Location</th>
             <th>Owner</th>
+            <th>Owner Email</th>
             <th>Image</th>
             <th></th>
         </tr>
@@ -22,9 +25,12 @@
     {
         <tr>
             <td>@item.Name</td>
+            <td>@item.Type</td>
             <td>@item.Breed</td>
+            <td>@(item.AgeYears.HasValue ? item.AgeYears + "y" : "-")</td>
             <td>@item.Location</td>
             <td>@item.OwnerName</td>
+            <td>@item.OwnerEmail</td>
             <td>
                 @if (!string.IsNullOrWhiteSpace(item.ImageUrl))
                 {

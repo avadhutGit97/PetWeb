@@ -1,4 +1,5 @@
 @model PetWeb.Models.Pet
+@using PetWeb.Models
 @{
     ViewData["Title"] = "Edit Pet";
 }
@@ -11,9 +12,17 @@
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
+        <label asp-for="Type" class="form-label"></label>
+        <select asp-for="Type" class="form-select" asp-items="Html.GetEnumSelectList<PetType>()"></select>
+    </div>
+    <div class="mb-3">
         <label asp-for="Breed" class="form-label"></label>
         <input asp-for="Breed" class="form-control" />
         <span asp-validation-for="Breed" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="AgeYears" class="form-label"></label>
+        <input asp-for="AgeYears" class="form-control" />
     </div>
     <div class="mb-3">
         <label asp-for="Location" class="form-label"></label>
@@ -22,6 +31,10 @@
     <div class="mb-3">
         <label asp-for="OwnerName" class="form-label"></label>
         <input asp-for="OwnerName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="OwnerEmail" class="form-label"></label>
+        <input asp-for="OwnerEmail" class="form-control" />
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
     <a class="btn btn-secondary" href="@Url.Action("Index")">Back</a>

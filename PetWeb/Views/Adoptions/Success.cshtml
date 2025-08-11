@@ -1,0 +1,12 @@
+@model PetWeb.Models.AdoptionRequest
+@{
+    ViewData["Title"] = "Request Submitted";
+    var pet = ViewBag.Pet as PetWeb.Models.Pet;
+}
+<h1>Thank you!</h1>
+<p>Your adoption request has been submitted.</p>
+@if (pet != null)
+{
+    <p>We will contact you regarding <strong>@pet.Name</strong> soon.</p>
+}
+<a class="btn btn-primary" href="@Url.Action("Search", "Adopter")">Find more pets</a>

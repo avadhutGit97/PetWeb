@@ -1,8 +1,27 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Welcome";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <a class="text-decoration-none" href="@Url.Action("Create", "Pets")">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Pet Owner</h3>
+                        <p class="card-text">List your pet for adoption.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="text-decoration-none" href="@Url.Action("Search", "Adopter")">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Adopter</h3>
+                        <p class="card-text">Find pets by location and type.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>

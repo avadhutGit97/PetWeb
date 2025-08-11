@@ -1,0 +1,45 @@
+@model PetWeb.Models.AdoptionRequest
+@{
+    ViewData["Title"] = "Adoption Request";
+    var pet = ViewBag.Pet as PetWeb.Models.Pet;
+}
+<h1>Adoption Request</h1>
+@if (pet != null)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">@pet.Name (@pet.Type)</h5>
+            <p class="card-text">Breed: @pet.Breed | Location: @pet.Location</p>
+            @if (!string.IsNullOrWhiteSpace(pet.ImageUrl))
+            {
+                <img src="@pet.ImageUrl" style="max-height:150px" />
+            }
+        </div>
+    </div>
+}
+<form asp-action="Create" method="post">
+    <input type="hidden" asp-for="PetId" />
+    <div class="mb-3">
+        <label asp-for="AdopterName" class="form-label"></label>
+        <input asp-for="AdopterName" class="form-control" />
+        <span asp-validation-for="AdopterName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="AdopterEmail" class="form-label"></label>
+        <input asp-for="AdopterEmail" class="form-control" />
+        <span asp-validation-for="AdopterEmail" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PhoneNumber" class="form-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="PreferredVisitDate" class="form-label"></label>
+        <input asp-for="PreferredVisitDate" type="date" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Request</button>
+    <a class="btn btn-secondary" href="@Url.Action("Search", "Adopter")">Back</a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
